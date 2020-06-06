@@ -9,14 +9,18 @@ const User = sequelize.define("user", {
   },
   name: {
     type: Sequelize.STRING,
+  
   },
-  email: Sequelize.STRING,
-  mobile: Sequelize.INTEGER,
+  email: {
+    type: Sequelize.STRING,
+    unique: true,
+  },
+  mobile: Sequelize.TEXT,
   password: Sequelize.STRING,
   intro: Sequelize.TEXT("tiny"),
   profile: Sequelize.TEXT,
   registeredAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
-  lastLogin: Sequelize.DATE,
+  lastLogin: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
 });
 
 module.exports = User;
