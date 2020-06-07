@@ -76,20 +76,16 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-exports.deleteUser= async(req,res) => {
-  
-    try {
-    
-      const user = await User.findByPk(req.params.id);
-      await user.destroy();
-      res.json({
-        success:true,
-        data:{}
-      })
-
-  }catch (err) {
+exports.deleteUser = async (req, res) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    await user.destroy();
+    res.json({
+      success: true,
+      data: {},
+    });
+  } catch (err) {
     console.log(err.message);
     res.status(500).send("server error");
   }
-
-}
+};
