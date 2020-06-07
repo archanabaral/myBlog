@@ -30,17 +30,10 @@ exports.getPost = async (req, res) => {
 
 exports.createPost = async (req, res) => {
 	try {
-		const user = await User.findOne({
-			id: req.params.userid,
-		});
-
-		console.log('User', user, req.params.userid);
-
-		if (user) {
+		const user = await User.findByPk(req.params.userid);
+    if (user) {
 			req.body.userId = req.params.userid;
-
 			const post = await Post.create(req.body);
-
 			res.status(201).json(post);
 		} else {
 			res.status(404).send('User Not Found');
@@ -62,7 +55,7 @@ exports.updatePost = async (req, res) => {
 			success: true,
 		});
 	} catch (err) {
-		console.log(err.message);
+		console.log(err);
 		res.status(500).send('server error');
 	}
 };
