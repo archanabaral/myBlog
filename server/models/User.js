@@ -9,12 +9,18 @@ const User = sequelize.define("user", {
   },
   name: {
     type: Sequelize.STRING,
-  
   },
   email: {
     type: Sequelize.STRING,
     unique: true,
   },
+  role: {
+    type: Sequelize.ENUM('user', 'publisher', 'admin'),
+    
+    allowNull: false,
+    defaultValue: 'user'
+  },
+ 
   mobile: Sequelize.TEXT,
   password: Sequelize.STRING,
   intro: Sequelize.TEXT("tiny"),

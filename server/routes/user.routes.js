@@ -1,7 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const { getUsers, createUser, updateUser, deleteUser } = require("../controllers/user.controller");
+//const postRouter = require("./post.routes")
+const {
+  getUsers,
+  createUser,
+  updateUser,
+  deleteUser,
+} = require("../controllers/user.controller");
 const { check } = require("express-validator/check");
+
+//router.use("/:userId/posts", postRouter);
 
 router
   .route("/")
@@ -16,9 +24,6 @@ router
     ],
     createUser
   );
-  router
-  .route("/:id")
-  .put(updateUser)
-  .delete(deleteUser)
+router.route("/:id").put(updateUser).delete(deleteUser);
 
 module.exports = router;

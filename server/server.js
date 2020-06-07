@@ -25,6 +25,11 @@ app.use("/api/users", users);
 app.use("/api/posts", posts);
 app.use("/api/categories", categories);
 app.use("/api/tags", tags);
+app.use("/api/:userId", posts);
+
+//Relationship
+Post.belongsTo(User);
+User.hasMany(Post);
 
 //connect with database
 sequelize

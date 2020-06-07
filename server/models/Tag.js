@@ -26,6 +26,7 @@ const tag = sequelize.define("tag", {
 
 SequelizeSlugify.slugifyModel(tag, {
   source: ["title"],
+  lower: true
 });
 
 module.exports = tag;

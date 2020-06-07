@@ -13,12 +13,13 @@ exports.getUsers = async (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
+
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { name, email, password, mobile, intro, profile } = req.body;
+  const { name, email, password, mobile, intro, profile,role } = req.body;
 
   try {
     let user = await User.findOne({ where: { email: email } });
@@ -36,6 +37,7 @@ exports.createUser = async (req, res) => {
       mobile,
       intro,
       profile,
+      role
     });
 
     const salt = await bcrypt.genSalt(10);

@@ -8,9 +8,7 @@ const Post = sequelize.define("post", {
     autoIncrement: true,
     primaryKey: true,
   },
-  authorId: {
-    type: Sequelize.BIGINT,
-  },
+  
   parentId: {
     type: Sequelize.BIGINT,
   },
@@ -29,6 +27,8 @@ const Post = sequelize.define("post", {
   summary: {
     type: Sequelize.TEXT("tiny"),
   },
+  
+  
 
   published: Sequelize.BOOLEAN,
 
