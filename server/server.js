@@ -16,6 +16,7 @@ const users = require("./routes/user.routes");
 const posts = require("./routes/post.routes");
 const categories = require("./routes/category.routes");
 const tags = require("./routes/tag.routes");
+const auths = require("./routes/auth.routes")
 
 const app = express();
 app.use(express.json());
@@ -25,6 +26,7 @@ app.use("/api/users", users);
 app.use("/api/posts", posts);
 app.use("/api/categories", categories);
 app.use("/api/tags", tags);
+app.use("/api/auth", auths)
 
 //Relationship
 Post.belongsTo(User);

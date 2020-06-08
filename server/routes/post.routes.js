@@ -1,18 +1,15 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
+
 const {
   getPost,
   createPost,
   updatePost,
   deletePost,
 } = require("../controllers/post.controller");
+const auth = require("../middleware/auth")
 
-
-//router.route("/").post(createPost);
-router.route("/:id").put(updatePost).delete(deletePost)
-router.route("/posts").get(getPost);
-
-
-router.post("/:userid/post", createPost);
+router.route("/").post(auth , createPost).get(auth, getPost);
+router.route("/:id").put(updatePost).delete(deletePost);
 
 module.exports = router;

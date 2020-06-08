@@ -8,10 +8,6 @@ const Post = sequelize.define("post", {
     autoIncrement: true,
     primaryKey: true,
   },
-  
-  parentId: {
-    type: Sequelize.BIGINT,
-  },
 
   title: {
     type: Sequelize.STRING,
@@ -27,8 +23,6 @@ const Post = sequelize.define("post", {
   summary: {
     type: Sequelize.TEXT("tiny"),
   },
-  
-  
 
   published: Sequelize.BOOLEAN,
 

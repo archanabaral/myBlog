@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
-//const postRouter = require("./post.routes")
+const postRouter = require("./post.routes");
 const {
   getUsers,
   createUser,
   updateUser,
   deleteUser,
 } = require("../controllers/user.controller");
-const { check } = require("express-validator/check");
+const { check } = require("express-validator");
 
-//router.use("/:userId/posts", postRouter);
+router.use("/:userid/posts", postRouter);
 
 router
   .route("/")
